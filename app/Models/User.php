@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role_id',
     ];
 
     /**
@@ -57,8 +58,8 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class);
     }
 
-    public function photoable()
+    public function photo()
     {
-        return $this->morphTo(Photo::class, "photoable");
+        return $this->morphOne(Photo::class, "photoable");
     }
 }
